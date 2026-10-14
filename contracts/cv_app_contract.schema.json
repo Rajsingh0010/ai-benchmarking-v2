@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"CV App Contract","type":"object","required":["app_id","predictions"],"properties":{"app_id":{"type":"string"},"predictions":{"type":"array","items":{"type":"object","required":["box","label","score"]}},"latency_ms":{"type":"number"}}}
