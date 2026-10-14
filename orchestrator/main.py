@@ -20,6 +20,11 @@ def register_app(registration: AppRegistration) -> dict[str, str]:
     return {"status": "registered", "app_id": registration.app_id}
 
 
+@app.get("/apps")
+def list_apps() -> list[AppRegistration]:
+    return list(registered.values())
+
+
 @app.post("/run_eval")
 def run_eval(request: EvaluationRequest) -> dict:
     registration = registered.get(request.app_id)
@@ -39,5 +44,6 @@ def get_result(run_id: str) -> dict:
 
 
 @app.get("/results")
-def list_results(limit: int = 50) -> list[dict]:
-    return store.list(max(1, min(limit, 200)))
+def list_results(limit: int = 50, app_id: str | None = None,
+                 app_type: str | None = None) -> list[dict]:
+    return store.list_filtered(app_id, app_type, max(1, min(limit, 200)))

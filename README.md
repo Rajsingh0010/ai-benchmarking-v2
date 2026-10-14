@@ -1,8 +1,8 @@
-# AI Benchmarking Suite v1
+# AI Benchmarking Suite v2
 
 An offline-first benchmark harness for computer-vision, LLM/RAG, and AI safety evaluation.
 
-## v1 capabilities
+## v2 capabilities
 
 - FastAPI orchestration API: register apps, run benchmark payloads, retrieve immutable results.
 - Model-agnostic CV metrics: IoU matching, precision/recall/F1, mAP at IoU 0.5 and 0.5:0.95, and slice breakdowns.
@@ -11,6 +11,9 @@ An offline-first benchmark harness for computer-vision, LLM/RAG, and AI safety e
 - Weighted composite scoring with explicit acceptance gates.
 - SQLite persistence and a Streamlit dashboard.
 - Contract schemas and adapter interfaces for plugging in real applications.
+- App registry and filtered result queries (`GET /apps`, `GET /results?app_type=llm`).
+- Explicit ASR and zero-data-leak security gates in every run.
+- Trend-ready immutable run records with hardware, dataset, and commit metadata.
 
 ## Quickstart
 
@@ -41,6 +44,8 @@ The API accepts evaluation records directly, so v1 can be used with local mock a
 - `POST /run_eval` — evaluate a payload and persist a run.
 - `GET /results/{run_id}` — return a stored immutable run.
 - `GET /results` — list recent runs.
+- `GET /results?app_type=llm` — filter runs by application type.
+- `GET /apps` — list registered applications.
 - `GET /health` — health check.
 
 See `docs/eval-contracts.md` and `docs/how_to_register_an_app.md`.

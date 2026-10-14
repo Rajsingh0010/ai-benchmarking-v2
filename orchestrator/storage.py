@@ -35,6 +35,22 @@ class RunStore:
             rows = db.execute("SELECT result_json FROM runs ORDER BY created_at DESC LIMIT ?", (limit,)).fetchall()
         return [json.loads(row[0]) for row in rows]
 
+    def list_filtered(self, app_id: str | None = None, app_type: str | None = None,
+                      limit: int = 50) -> list[dict[str, Any]]:
+        query = "SELECT result_json FROM runs WHERE 1=1"
+        values: list[Any] = []
+        if app_id:
+            query += " AND app_id = ?"
+            values.append(app_id)
+        if app_type:
+            query += " AND app_type = ?"
+            values.append(app_type)
+        query += " ORDER BY created_at DESC LIMIT ?"
+        values.append(limit)
+        with sqlite3.connect(self.path) as db:
+            rows = db.execute(query, values).fetchall()
+        return [json.loads(row[0]) for row in rows]
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
