@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Benchmarking Suite · v2 Dashboard</title>
+  <style>
+    :root{--bg:#07101b;--panel:#0d1a29;--line:#20364b;--text:#edf4fb;--muted:#8ca0b4;--cyan:#59e1df;--green:#83e28c;--pink:#ff6b9d;--amber:#f4c85b}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0,#16314a 0,transparent 35%),var(--bg);color:var(--text);font:14px Inter,ui-sans-serif,system-ui,sans-serif}
+    .shell{width:min(1180px,92vw);margin:0 auto;padding:34px 0 60px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:42px}
+    .brand{font-weight:800;letter-spacing:.14em;font-size:14px}.brand b{color:var(--cyan);font-size:24px;margin-right:10px}.version{border:1px solid var(--line);padding:7px 11px;border-radius:999px;color:var(--cyan);font-size:11px}
+    h1{font-size:42px;line-height:1.05;margin:0 0 12px;letter-spacing:-.04em}.sub{color:var(--muted);margin:0 0 32px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card{background:linear-gradient(145deg,rgba(18,37,57,.94),rgba(10,23,37,.94));border:1px solid var(--line);border-radius:12px;padding:20px}.metric-label{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}.metric{font-size:32px;font-weight:750;margin-top:10px}.good{color:var(--green)}.cyan{color:var(--cyan)}.amber{color:var(--amber)}
+    .wide{grid-column:span 3}.side{grid-column:span 1}.section-title{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 20px}.chart{height:200px;display:flex;align-items:end;gap:12px;padding:12px 4px 0;border-bottom:1px solid var(--line);background:repeating-linear-gradient(to top,transparent 0 49px,rgba(140,160,180,.08) 50px)}
+    .bar{flex:1;background:linear-gradient(180deg,var(--cyan),#247e98);border-radius:5px 5px 0 0;min-height:30px;position:relative}.bar span{position:absolute;top:-22px;width:100%;text-align:center;color:var(--muted);font-size:10px}.axis{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-top:9px}
+    .run{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}.run:last-child{border:0}.run-name{font-weight:700}.run-meta{color:var(--muted);font-size:11px;margin-top:4px}.pill{padding:5px 9px;border-radius:5px;font-size:10px;font-weight:800;letter-spacing:.08em}.pass{background:rgba(131,226,140,.13);color:var(--green)}.warn{background:rgba(255,107,157,.13);color:var(--pink)}
+    .score{font-size:20px;font-weight:800;color:var(--cyan)}.gate{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px}.gate:last-child{border:0}.dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:8px;background:var(--green);box-shadow:0 0 10px var(--green)}
+    .foot{color:var(--muted);font-size:11px;margin-top:26px}.foot a{color:var(--cyan)}
+    @media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.wide,.side{grid-column:span 2}h1{font-size:34px}}@media(max-width:520px){.grid{grid-template-columns:1fr}.wide,.side{grid-column:span 1}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <header class="top"><div class="brand"><b>✦</b> AI BENCHMARKING SUITE</div><div class="version">V2.0 · LOCAL</div></header>
+  <h1>Evaluation control room</h1><p class="sub">Cross-app quality, safety, and operational performance at a glance.</p>
+  <section class="grid">
+    <div class="card"><div class="metric-label">Runs tracked</div><div class="metric cyan">24</div></div>
+    <div class="card"><div class="metric-label">Gate pass rate</div><div class="metric good">91.7%</div></div>
+    <div class="card"><div class="metric-label">Latest composite</div><div class="metric cyan">88.4%</div></div>
+    <div class="card"><div class="metric-label">Security pass</div><div class="metric good">100%</div></div>
+    <div class="card wide"><h2 class="section-title">Composite score trend</h2><div class="chart"><div class="bar" style="height:62%"><span>76%</span></div><div class="bar" style="height:70%"><span>80%</span></div><div class="bar" style="height:73%"><span>82%</span></div><div class="bar" style="height:78%"><span>85%</span></div><div class="bar" style="height:84%"><span>88%</span></div><div class="bar" style="height:88%"><span>91%</span></div></div><div class="axis"><span>RUN 019</span><span>RUN 024</span></div></div>
+    <div class="card side"><h2 class="section-title">Acceptance gates</h2><div class="gate"><span><i class="dot"></i>Faithfulness</span><b>PASS</b></div><div class="gate"><span><i class="dot"></i>Relevance</span><b>PASS</b></div><div class="gate"><span><i class="dot"></i>Security</span><b>PASS</b></div><div class="gate"><span><i class="dot"></i>Data leaks</span><b>0%</b></div></div>
+    <div class="card wide"><h2 class="section-title">Recent benchmark runs</h2><div class="run"><div><div class="run-name">pilot-llm-rag</div><div class="run-meta">LLM · llm-v1 · 2 min ago</div></div><div class="score">88.4%</div><span class="pill pass">PASS</span></div><div class="run"><div><div class="run-name">pilot-cv-night</div><div class="run-meta">CV · cv-v1 · 18 min ago</div></div><div class="score">84.1%</div><span class="pill pass">PASS</span></div><div class="run"><div><div class="run-name">regression-023</div><div class="run-meta">LLM · llm-v1 · 1 hr ago</div></div><div class="score">68.7%</div><span class="pill warn">REVIEW</span></div></div>
+    <div class="card side"><h2 class="section-title">System health</h2><div class="gate"><span>Orchestrator</span><b class="good">ONLINE</b></div><div class="gate"><span>Results store</span><b class="good">HEALTHY</b></div><div class="gate"><span>Hardware</span><b>LOCAL CPU</b></div><div class="gate"><span>Dataset</span><b>V1 FROZEN</b></div></div>
+  </section>
+  <p class="foot">Static preview · live data is available through the FastAPI and Streamlit surfaces. <a href="../../../docs/architecture.md">View architecture</a></p>
+</main>
+</body>
+</html>

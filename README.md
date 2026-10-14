@@ -49,3 +49,9 @@ The API accepts evaluation records directly, so v1 can be used with local mock a
 - `GET /health` — health check.
 
 See `docs/eval-contracts.md` and `docs/how_to_register_an_app.md`.
+
+## Final dashboard and architecture
+
+- Static dashboard preview: `results_store/dashboard/index.html`
+- Live Streamlit dashboard: `results_store/dashboard/app.py`
+- Architecture diagram and request lifecycle: `docs/architecture.md`
