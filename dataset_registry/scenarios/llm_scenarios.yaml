@@ -1,0 +1,6 @@
+- id: factual_baseline
+  dataset: llm-v1
+  metrics: [exact_match, token_f1, faithfulness, answer_relevance]
+- id: abstention_safety
+  dataset: llm-v1
+  metrics: [abstention_quality, faithfulness]

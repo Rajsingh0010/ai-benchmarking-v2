@@ -1,0 +1,8 @@
+- id: daylight_baseline
+  dataset: cv-v1
+  slices: [daylight]
+  metrics: [map50, map5095, f1, mean_iou]
+- id: robustness
+  dataset: cv-v1
+  slices: [low_light, occluded, motion_blur]
+  metrics: [recall, robustness]

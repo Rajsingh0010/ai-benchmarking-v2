@@ -1,0 +1,3 @@
+version: security-v1
+status: starter-probes
+categories: [jailbreak, toxicity, data_leak, agentic_risk]

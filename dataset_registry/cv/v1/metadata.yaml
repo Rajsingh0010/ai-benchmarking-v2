@@ -1,0 +1,4 @@
+version: cv-v1
+count: 0
+format: COCO-compatible records
+status: schema-only-seed

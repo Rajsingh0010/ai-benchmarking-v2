@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.pytest_cache/
+results_store/db/*.sqlite3
+results_store/runs/*
+!results_store/runs/.gitkeep

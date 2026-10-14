@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"LLM App Contract","type":"object","required":["question","answer"],"properties":{"question":{"type":"string"},"answer":{"type":"string"},"context":{"type":"array","items":{"type":"string"}},"latency_ms":{"type":"number"}}}
